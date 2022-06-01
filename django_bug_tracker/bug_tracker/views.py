@@ -1,5 +1,9 @@
-from django.http import HttpResponse
+from django.shortcuts import render
 
-# first view
+
 def index(request):
-    return HttpResponse('Hello, this is the landing page of the bugtracking app!')
+    return render(request, 'bug_tracker/index.html')
+
+def about(request):
+    return render(request, 'bug_tracker/about.html')
+    
