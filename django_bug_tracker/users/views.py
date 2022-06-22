@@ -15,3 +15,5 @@ from django.contrib import messages
 #         form = UserRegisterForm()
                
 #     return render(request, 'users/register.html', {'form': form})
+def register(request):
+    return render(request, 'users/register.html')
