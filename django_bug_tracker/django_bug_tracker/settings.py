@@ -87,12 +87,22 @@ DATABASES = {
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
+PASSWORD_HASHERS = [
+    'django.contrib.auth.hasers.Argon2PasswordHasher',
+    'django.contrib.auth.hasers.BCryptSHA256PasswordHasher',
+    'django.contrib.auth.hasers.BCryptPasswordHasher',
+    'django.contrib.auth.hasers.PBKDF2PasswordHasher',
+    'django.contrib.auth.hasers.PBKDF2SHA1PasswordHasher',
+
+]
+
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
     },
     {
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'OPTIONS':{'min_length':8},
     },
     {
         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
@@ -120,6 +130,9 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+# Media
+MEDIA_URL = 'media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
